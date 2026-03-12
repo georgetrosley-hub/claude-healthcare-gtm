@@ -37,6 +37,7 @@ export function ChatPanel({
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const previousAccountIdRef = useRef(account.id);
 
   useEffect(() => {
     if (isOpen && inputRef.current) {
@@ -49,6 +50,36 @@ export function ChatPanel({
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, streamingContent]);
+
+  useEffect(() => {
+    if (previousAccountIdRef.current !== account.id) {
+      // #region agent log
+      fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Debug-Session-Id": "b70088",
+        },
+        body: JSON.stringify({
+          sessionId: "b70088",
+          runId: "vercel-readiness-pass-1",
+          hypothesisId: "H3",
+          location: "components/layout/chat-panel.tsx:accountChange",
+          message: "Chat account changed with existing local state",
+          data: {
+            previousAccountId: previousAccountIdRef.current,
+            nextAccountId: account.id,
+            retainedMessageCount: messages.length,
+            retainedStreamingChars: streamingContent.length,
+            wasStreaming: isStreaming,
+          },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion
+      previousAccountIdRef.current = account.id;
+    }
+  }, [account.id, isStreaming, messages.length, streamingContent.length]);
 
   const sendMessage = useCallback(async () => {
     const trimmed = input.trim();
@@ -64,13 +95,41 @@ export function ChatPanel({
     const controller = new AbortController();
     abortRef.current = controller;
     let fullText = "";
+    let chunkCount = 0;
+    let parseFailureCount = 0;
+    let loggedFirstParseFailure = false;
+    const requestHeaders = getRequestHeaders();
 
     try {
+      // #region agent log
+      fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Debug-Session-Id": "b70088",
+        },
+        body: JSON.stringify({
+          sessionId: "b70088",
+          runId: "vercel-readiness-pass-1",
+          hypothesisId: "H2",
+          location: "components/layout/chat-panel.tsx:sendMessage",
+          message: "Chat request started",
+          data: {
+            accountId: account.id,
+            section: activeSection,
+            messageCount: newMessages.length,
+            hadRetainedMessages: messages.length > 0,
+            hasClientApiKey: Boolean(requestHeaders["x-anthropic-api-key"]),
+          },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          ...getRequestHeaders(),
+          ...requestHeaders,
         },
         body: JSON.stringify({
           messages: newMessages,
@@ -92,6 +151,7 @@ export function ChatPanel({
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
+        chunkCount += 1;
 
         const chunk = decoder.decode(value, { stream: true });
         const lines = chunk.split("\n");
@@ -107,12 +167,63 @@ export function ChatPanel({
                 setStreamingContent(fullText);
               }
             } catch {
+              parseFailureCount += 1;
+              if (!loggedFirstParseFailure) {
+                loggedFirstParseFailure = true;
+                // #region agent log
+                fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "X-Debug-Session-Id": "b70088",
+                  },
+                  body: JSON.stringify({
+                    sessionId: "b70088",
+                    runId: "vercel-readiness-pass-1",
+                    hypothesisId: "H2",
+                    location: "components/layout/chat-panel.tsx:sendMessage",
+                    message: "Chat streaming JSON parse failed",
+                    data: {
+                      accountId: account.id,
+                      chunkCount,
+                      dataLength: data.length,
+                      chunkLength: chunk.length,
+                      chunkEndsWithNewline: chunk.endsWith("\n"),
+                    },
+                    timestamp: Date.now(),
+                  }),
+                }).catch(() => {});
+                // #endregion
+              }
               // skip
             }
           }
         }
       }
 
+      // #region agent log
+      fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Debug-Session-Id": "b70088",
+        },
+        body: JSON.stringify({
+          sessionId: "b70088",
+          runId: "vercel-readiness-pass-1",
+          hypothesisId: "H2",
+          location: "components/layout/chat-panel.tsx:sendMessage",
+          message: "Chat request completed",
+          data: {
+            accountId: account.id,
+            chunkCount,
+            parseFailureCount,
+            fullTextLength: fullText.length,
+          },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: fullText },

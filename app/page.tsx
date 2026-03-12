@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppProvider, useApp } from "@/app/context/app-context";
 import { Sidebar, type SectionId } from "@/components/layout/sidebar";
 import { StatusBar } from "@/components/layout/status-bar";
@@ -42,6 +42,30 @@ function MainContent() {
     handleReject,
     handleModify,
   } = useApp();
+
+  useEffect(() => {
+    // #region agent log
+    fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Debug-Session-Id": "b70088",
+      },
+      body: JSON.stringify({
+        sessionId: "b70088",
+        runId: "vercel-readiness-pass-2",
+        hypothesisId: "H5",
+        location: "app/page.tsx:MainContent",
+        message: "Main page mounted",
+        data: {
+          accountId: account.id,
+          activeSection,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
+  }, [account.id, activeSection]);
 
   const forecastData = [
     { month: "M1", land: account.estimatedLandValue * 0.1, expansion: 0 },

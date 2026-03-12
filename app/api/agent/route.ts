@@ -9,6 +9,26 @@ import {
 
 export async function POST(req: NextRequest) {
   try {
+    // #region agent log
+    fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Debug-Session-Id": "b70088",
+      },
+      body: JSON.stringify({
+        sessionId: "b70088",
+        runId: "vercel-readiness-pass-2",
+        hypothesisId: "H7",
+        location: "app/api/agent/route.ts:POST",
+        message: "Agent API route entered",
+        data: {
+          hasClientApiKey: Boolean(req.headers.get("x-anthropic-api-key")?.trim()),
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
     const anthropic = createAnthropicClient(req);
     const { agentName, account, competitors } = await req.json();
 
@@ -33,9 +53,84 @@ export async function POST(req: NextRequest) {
 
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
-      const parsed = JSON.parse(jsonMatch[0]);
-      return NextResponse.json(parsed);
+      try {
+        const parsed = JSON.parse(jsonMatch[0]);
+        // #region agent log
+        fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Debug-Session-Id": "b70088",
+          },
+          body: JSON.stringify({
+            sessionId: "b70088",
+            runId: "vercel-readiness-pass-1",
+            hypothesisId: "H4",
+            location: "app/api/agent/route.ts:POST",
+            message: "Agent response JSON parsed successfully",
+            data: {
+              agentName,
+              accountId: account?.id ?? null,
+              textLength: text.length,
+              jsonLength: jsonMatch[0].length,
+            },
+            timestamp: Date.now(),
+          }),
+        }).catch(() => {});
+        // #endregion
+        return NextResponse.json(parsed);
+      } catch (parseError) {
+        // #region agent log
+        fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Debug-Session-Id": "b70088",
+          },
+          body: JSON.stringify({
+            sessionId: "b70088",
+            runId: "vercel-readiness-pass-1",
+            hypothesisId: "H4",
+            location: "app/api/agent/route.ts:POST",
+            message: "Agent response JSON parse failed",
+            data: {
+              agentName,
+              accountId: account?.id ?? null,
+              textLength: text.length,
+              jsonLength: jsonMatch[0].length,
+              errorMessage:
+                parseError instanceof Error ? parseError.message : "unknown",
+            },
+            timestamp: Date.now(),
+          }),
+        }).catch(() => {});
+        // #endregion
+        throw parseError;
+      }
     }
+
+    // #region agent log
+    fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Debug-Session-Id": "b70088",
+      },
+      body: JSON.stringify({
+        sessionId: "b70088",
+        runId: "vercel-readiness-pass-1",
+        hypothesisId: "H4",
+        location: "app/api/agent/route.ts:POST",
+        message: "Agent response missing JSON block",
+        data: {
+          agentName,
+          accountId: account?.id ?? null,
+          textLength: text.length,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
 
     return NextResponse.json({
       title: "Analysis complete",

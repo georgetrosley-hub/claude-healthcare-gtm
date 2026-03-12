@@ -8,6 +8,26 @@ import {
 
 export async function POST(req: NextRequest) {
   try {
+    // #region agent log
+    fetch("http://127.0.0.1:7605/ingest/623d59d1-98a2-437e-8e26-cbbf21853b65", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Debug-Session-Id": "b70088",
+      },
+      body: JSON.stringify({
+        sessionId: "b70088",
+        runId: "vercel-readiness-pass-2",
+        hypothesisId: "H6",
+        location: "app/api/chat/route.ts:POST",
+        message: "Chat API route entered",
+        data: {
+          hasClientApiKey: Boolean(req.headers.get("x-anthropic-api-key")?.trim()),
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
     const anthropic = createAnthropicClient(req);
     const { messages, account, competitors, section } = await req.json();
 
