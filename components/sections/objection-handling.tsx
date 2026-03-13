@@ -79,7 +79,7 @@ export function ObjectionHandling({ account, competitors }: ObjectionHandlingPro
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.45 }}
-      className="space-y-10"
+      className="space-y-8 sm:space-y-10"
     >
       <SectionHeader
         title="Objection handling"
@@ -87,12 +87,12 @@ export function ObjectionHandling({ account, competitors }: ObjectionHandlingPro
       />
 
       {/* Custom objection input */}
-      <div className="rounded-lg border border-surface-border/50 bg-surface-elevated/30 p-5">
+      <div className="rounded-lg border border-surface-border/50 bg-surface-elevated/30 p-4 sm:p-5">
         <div className="flex items-center gap-2 mb-3">
           <MessageSquare className="h-4 w-4 text-claude-coral/60" strokeWidth={1.8} />
           <p className="text-[13px] font-medium text-text-primary">What are they saying?</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row">
           <input
             value={customObjection}
             onChange={(e) => setCustomObjection(e.target.value)}
@@ -104,7 +104,7 @@ export function ObjectionHandling({ account, competitors }: ObjectionHandlingPro
             onClick={handleCustomSubmit}
             disabled={!customObjection.trim() || response.isStreaming}
             className={cn(
-              "flex items-center gap-2 rounded-lg px-4 py-2.5 text-[12px] font-medium transition-colors shrink-0",
+              "flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-[12px] font-medium transition-colors sm:w-auto sm:shrink-0",
               customObjection.trim()
                 ? "border border-claude-coral/20 bg-claude-coral/[0.06] text-claude-coral/90 hover:bg-claude-coral/10"
                 : "border border-surface-border/30 bg-surface-muted/20 text-text-muted/40 cursor-not-allowed"

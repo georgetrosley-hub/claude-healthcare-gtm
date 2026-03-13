@@ -121,7 +121,7 @@ export function OrgNodeCard({
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       className={cn(
-        "group relative overflow-hidden rounded-[24px] border p-4 shadow-[0_24px_60px_rgba(0,0,0,0.12)] transition-all duration-300",
+        "group relative overflow-hidden rounded-[20px] border p-3 shadow-[0_24px_60px_rgba(0,0,0,0.12)] transition-all duration-300 sm:rounded-[24px] sm:p-4",
         style.card,
         isActive && "shadow-[0_24px_70px_rgba(218,119,86,0.12)]",
         className
@@ -145,7 +145,7 @@ export function OrgNodeCard({
         </div>
 
         <div className="min-w-0 flex-1">
-          <div className="flex items-start gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 {rank ? (
@@ -174,7 +174,7 @@ export function OrgNodeCard({
             {onGeneratePitch ? (
               <button
                 onClick={onGeneratePitch}
-                className="rounded-full border border-claude-coral/15 bg-claude-coral/[0.08] p-2 text-claude-coral/80 transition-colors hover:bg-claude-coral/[0.14]"
+                className="self-start rounded-full border border-claude-coral/15 bg-claude-coral/[0.08] p-2 text-claude-coral/80 transition-colors hover:bg-claude-coral/[0.14] sm:self-auto"
                 title={`Generate expansion pitch for ${node.name}`}
               >
                 <ClaudeSparkle size={12} />
@@ -182,7 +182,7 @@ export function OrgNodeCard({
             ) : null}
           </div>
 
-          <div className="mt-4 grid grid-cols-2 gap-3">
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="rounded-2xl border border-white/5 bg-black/10 px-3 py-2.5">
               <p className="text-[10px] uppercase tracking-[0.08em] text-text-faint">
                 ARR potential

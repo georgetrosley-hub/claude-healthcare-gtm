@@ -102,16 +102,16 @@ export function LiveAgentFeed({ events, account, competitors }: LiveAgentFeedPro
       transition={{ duration: 0.4 }}
       className="flex h-full flex-col"
     >
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-start sm:justify-between">
         <SectionHeader
           title="Agent activity"
           subtitle="Real-time intelligence stream"
         />
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <button
             onClick={generateAgentInsight}
             disabled={isGenerating}
-            className="flex items-center gap-2 rounded-lg border border-claude-coral/20 bg-claude-coral/[0.06] px-3 py-1.5 text-[11px] font-medium text-claude-coral/90 hover:bg-claude-coral/10 transition-colors disabled:opacity-50"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-claude-coral/20 bg-claude-coral/[0.06] px-3 py-2 text-[11px] font-medium text-claude-coral/90 transition-colors hover:bg-claude-coral/10 disabled:opacity-50 sm:w-auto sm:py-1.5"
           >
             {isGenerating ? (
               <RefreshCw className="h-3 w-3 animate-spin" />
@@ -120,7 +120,7 @@ export function LiveAgentFeed({ events, account, competitors }: LiveAgentFeedPro
             )}
             Generate AI Insight
           </button>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center gap-2 sm:justify-start">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-claude-coral/40" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-claude-coral/70" />
@@ -141,8 +141,7 @@ export function LiveAgentFeed({ events, account, competitors }: LiveAgentFeedPro
 
       <div
         ref={scrollRef}
-        className="flex-1 space-y-4 overflow-y-auto pr-2"
-        style={{ maxHeight: "calc(100vh - 280px)" }}
+        className="flex-1 space-y-4 overflow-y-visible pr-0 sm:pr-2 lg:overflow-y-auto lg:max-h-[calc(100vh-280px)]"
       >
         <AnimatePresence mode="popLayout">
           {allEvents.map((event, i) => (

@@ -76,9 +76,9 @@ export function UseCaseLibrary({ account, competitors }: UseCaseLibraryProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.45 }}
-      className="space-y-10"
+      className="space-y-8 sm:space-y-10"
     >
-      <div className="flex items-end justify-between gap-4">
+      <div className="flex flex-col gap-3 sm:gap-4 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeader
           title="Use case library"
           subtitle="Claude use cases by industry and function"
@@ -86,7 +86,7 @@ export function UseCaseLibrary({ account, competitors }: UseCaseLibraryProps) {
         <button
           onClick={generateRecommendation}
           disabled={recommendation.isStreaming}
-          className="flex items-center gap-2 rounded-lg border border-claude-coral/20 bg-claude-coral/[0.06] px-4 py-2.5 text-[12px] font-medium text-claude-coral/90 hover:bg-claude-coral/10 transition-colors disabled:opacity-50 shrink-0"
+          className="flex w-full items-center justify-center gap-2 rounded-lg border border-claude-coral/20 bg-claude-coral/[0.06] px-4 py-2.5 text-[12px] font-medium text-claude-coral/90 transition-colors hover:bg-claude-coral/10 disabled:opacity-50 sm:w-auto lg:shrink-0"
         >
           <ClaudeSparkle size={12} />
           Recommend for {account.name}

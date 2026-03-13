@@ -118,10 +118,18 @@ export function CompetitiveBattlefield({ competitors, account }: CompetitiveBatt
                   <CompetitorCard competitor={c} />
                   <button
                     onClick={() => generateBattleCard(c.name)}
-                    className="absolute right-2 top-2 rounded bg-surface-elevated/80 p-1 text-text-muted transition-opacity hover:text-claude-coral/80 opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
+                    className="absolute right-2 top-2 hidden rounded bg-surface-elevated/80 p-1 text-text-muted opacity-0 transition-opacity hover:text-claude-coral/80 sm:block sm:group-hover:opacity-100"
                     title={`Battle card for ${c.name}`}
                   >
                     <ClaudeSparkle size={10} />
+                  </button>
+                  <button
+                    onClick={() => generateBattleCard(c.name)}
+                    className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-claude-coral/15 bg-claude-coral/[0.04] px-3 py-2 text-[11px] font-medium text-claude-coral/85 transition-colors hover:bg-claude-coral/[0.08] sm:hidden"
+                    title={`Battle card for ${c.name}`}
+                  >
+                    <ClaudeSparkle size={10} />
+                    Battle Card
                   </button>
                 </div>
               ))}
