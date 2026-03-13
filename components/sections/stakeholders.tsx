@@ -93,7 +93,7 @@ export function Stakeholders({
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+        <div className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-text-secondary">
             <Users className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -104,7 +104,7 @@ export function Stakeholders({
             {stakeholders.length}
           </p>
         </div>
-        <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+        <div className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-text-secondary">
             <Handshake className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -115,7 +115,7 @@ export function Stakeholders({
             {champions.length}
           </p>
         </div>
-        <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+        <div className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-text-secondary">
             <Star className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -126,7 +126,7 @@ export function Stakeholders({
             {executiveCount}
           </p>
         </div>
-        <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+        <div className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-text-secondary">
             <ShieldAlert className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">

@@ -121,7 +121,7 @@ export function Execution({
       </AnimatePresence>
 
       {pendingDecisions.length > 0 && (
-        <section className="rounded-[28px] border border-claude-coral/15 bg-claude-coral/[0.04] p-5 sm:p-6">
+        <section className="space-y-4">
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-4 w-4 text-claude-coral/80" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-claude-coral/70">
@@ -132,7 +132,7 @@ export function Execution({
             {pendingDecisions.map((item) => (
               <div
                 key={item.id}
-                className="rounded-[24px] border border-white/8 bg-white/[0.03] px-4 py-4"
+                className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4"
               >
                 <p className="text-[14px] font-medium text-text-primary">{item.title}</p>
                 <p className="mt-2 text-[12px] text-text-muted">
@@ -148,9 +148,9 @@ export function Execution({
                   </p>
                 </div>
                 {item.blockerDetail && (
-                  <div className="mt-4 rounded-[20px] border border-rose-400/20 bg-rose-500/[0.08] px-4 py-4">
-                    <p className="text-[10px] uppercase tracking-[0.12em] text-rose-200/80">Current blocker</p>
-                    <p className="mt-2 text-[13px] leading-relaxed text-text-secondary">
+                  <div className="mt-4">
+                    <p className="text-[10px] uppercase tracking-[0.12em] text-rose-400/90">Current blocker</p>
+                    <p className="mt-1 text-[13px] leading-relaxed text-text-secondary">
                       {item.blockerDetail}
                     </p>
                   </div>
@@ -182,7 +182,7 @@ export function Execution({
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.04, duration: 0.35 }}
-            className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5"
+            className="rounded-[28px] border border-claude-coral/20 bg-white/[0.02] p-5"
           >
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0">
@@ -222,9 +222,9 @@ export function Execution({
               </div>
             </div>
             {item.blockerDetail && (
-              <div className="mt-4 rounded-[20px] border border-rose-400/20 bg-rose-500/[0.08] px-4 py-4">
-                <p className="text-[10px] uppercase tracking-[0.12em] text-rose-200/80">Blocker detail</p>
-                <p className="mt-2 text-[13px] leading-relaxed text-text-secondary">
+              <div className="mt-4">
+                <p className="text-[10px] uppercase tracking-[0.12em] text-rose-400/90">Blocker detail</p>
+                <p className="mt-1 text-[13px] leading-relaxed text-text-secondary">
                   {item.blockerDetail}
                 </p>
               </div>

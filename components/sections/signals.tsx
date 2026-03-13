@@ -77,7 +77,7 @@ export function Signals({
       />
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+        <div className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-text-secondary">
             <Activity className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -88,7 +88,7 @@ export function Signals({
             {signals.length}
           </p>
         </div>
-        <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+        <div className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-text-secondary">
             <Radar className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -99,7 +99,7 @@ export function Signals({
             {averageConfidence}%
           </p>
         </div>
-        <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+        <div className="rounded-[24px] border border-claude-coral/20 bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-text-secondary">
             <ShieldCheck className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -119,7 +119,7 @@ export function Signals({
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.04, duration: 0.35 }}
-            className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5"
+            className="rounded-[28px] border border-claude-coral/20 bg-white/[0.02] p-5"
           >
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0">

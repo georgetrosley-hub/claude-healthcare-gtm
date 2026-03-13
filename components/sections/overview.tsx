@@ -114,7 +114,7 @@ export function Overview({
       className="space-y-10 sm:space-y-12"
     >
       {/* VP oversight — 30-second scan for Ryan */}
-      <section className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 sm:p-6">
+      <section className="rounded-2xl border border-claude-coral/20 bg-white/[0.02] p-5 sm:p-6">
         <div className="flex items-center gap-2">
           <Eye className="h-4 w-4 text-text-faint" strokeWidth={1.8} />
           <p className="text-[11px] font-medium uppercase tracking-wider text-text-faint">
@@ -269,7 +269,7 @@ export function Overview({
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.4fr)_380px]">
-        <section className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5 sm:p-6">
+        <section className="rounded-[28px] border border-claude-coral/20 bg-white/[0.02] p-5 sm:p-6">
           <SectionHeader
             title="How I&apos;d run this account"
             subtitle="The capture-plan view: how I&apos;d create urgency, who I&apos;d build with, what pilot I&apos;d land, and how I&apos;d expand."
@@ -329,7 +329,7 @@ export function Overview({
             </p>
           </div>
 
-          <div className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5">
+          <div className="rounded-[28px] border border-claude-coral/20 bg-white/[0.02] p-5">
             <div className="flex items-center gap-2 text-text-secondary">
               <Crosshair className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
               <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -353,14 +353,14 @@ export function Overview({
       </div>
 
       {flagshipDeal && (
-        <section className="rounded-[28px] border border-claude-coral/12 bg-claude-coral/[0.03] p-5 sm:p-6">
+        <section className="space-y-4">
           <SectionHeader
             title="Deal progress"
             subtitle={`Named champion, pilot criteria, and competitive battle for ${account.name}.`}
           />
           <div className="mt-6 grid gap-6 xl:grid-cols-3">
                 <div className="xl:col-span-2 space-y-6">
-              <div>
+              <div className="rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4">
                 <p className="text-[10px] uppercase tracking-[0.12em] text-text-faint">Champion</p>
                 <p className="mt-2 text-[15px] font-medium text-text-primary">
                   {flagshipDeal.championName} · {flagshipDeal.championTitle}
@@ -371,7 +371,7 @@ export function Overview({
                   </p>
                 )}
               </div>
-              <div>
+              <div className="rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4">
                 <p className="text-[10px] uppercase tracking-[0.12em] text-text-faint">Pilot criteria</p>
                 <p className="mt-2 text-[13px] leading-relaxed text-text-secondary">
                   {flagshipDeal.pilotCriteria.scope}
@@ -385,7 +385,7 @@ export function Overview({
                   {flagshipDeal.pilotCriteria.timeline} · Owner: {flagshipDeal.pilotCriteria.owner}
                 </p>
               </div>
-              <div>
+              <div className="rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4">
                 <p className="text-[10px] uppercase tracking-[0.12em] text-text-faint">Competitive battle</p>
                 <p className="mt-2 text-[13px] font-medium text-text-primary">
                   Incumbent: {flagshipDeal.competitiveBattle.incumbent}
@@ -398,7 +398,7 @@ export function Overview({
                 </p>
               </div>
             </div>
-            <div className="rounded-[22px] border border-white/8 bg-white/[0.02] px-4 py-4">
+            <div className="rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4">
               <p className="text-[10px] uppercase tracking-[0.12em] text-text-faint">Deal milestones</p>
               <div className="mt-4 space-y-3">
                 {flagshipDeal.milestones.map((m, i) => (
@@ -516,7 +516,7 @@ export function Overview({
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-        <section id="account-log" className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5 sm:p-6 scroll-mt-6">
+        <section id="account-log" className="space-y-4 p-0 scroll-mt-6">
           <SectionHeader
             title="Account log"
             subtitle="The place the AE tracks what happened, what changed, what slipped, and what to do next."
@@ -526,7 +526,7 @@ export function Overview({
               <div
                 key={update.id}
                 id={`account-update-${update.id}`}
-                className="rounded-[22px] border border-white/8 bg-black/10 px-4 py-4 scroll-mt-6"
+                className="rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4 scroll-mt-6"
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] text-text-secondary">
@@ -615,7 +615,7 @@ export function Overview({
       </div>
 
       <div className="grid gap-6 xl:grid-cols-2">
-        <section id="my-first-30-days" className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5 sm:p-6 scroll-mt-6">
+        <section id="my-first-30-days" className="space-y-4 scroll-mt-6">
           <div className="flex items-center gap-2">
             <BriefcaseBusiness className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -627,7 +627,7 @@ export function Overview({
               <div
                 key={item.id}
                 id={`execution-item-${item.id}`}
-                className="flex items-start gap-3 rounded-[22px] border border-white/8 bg-black/10 px-4 py-4 scroll-mt-6"
+                className="flex items-start gap-3 rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4 scroll-mt-6"
               >
                 <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-claude-coral/70" strokeWidth={1.8} />
                 <div className="min-w-0">
@@ -644,7 +644,7 @@ export function Overview({
           </div>
         </section>
 
-        <section className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5 sm:p-6">
+        <section className="space-y-4">
           <div className="flex items-center gap-2">
             <AlertTriangle className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-text-faint">
@@ -655,13 +655,13 @@ export function Overview({
             {account.topBlockers.slice(0, 3).map((blocker) => (
               <div
                 key={blocker}
-                className="rounded-[22px] border border-white/8 bg-black/10 px-4 py-4"
+                className="rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4"
               >
                 <p className="text-[13px] leading-relaxed text-text-secondary">{blocker}</p>
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-[22px] border border-white/8 bg-black/10 px-4 py-4">
+          <div className="mt-6 rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4">
             <div className="flex items-center gap-2">
               <Users className="h-4 w-4 text-claude-coral/75" strokeWidth={1.8} />
               <p className="text-[12px] font-medium text-text-primary">Executive path I&apos;d run</p>
@@ -674,7 +674,7 @@ export function Overview({
         </section>
       </div>
 
-      <section className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5 sm:p-6">
+      <section className="space-y-4">
         <SectionHeader
           title="Account hypotheses I would pressure-test"
           subtitle="These are not claimed facts from a live CRM. They are the initial hypotheses I would bring into discovery, stakeholder mapping, and the first pilot cycle."
@@ -683,7 +683,7 @@ export function Overview({
           {signals.slice(0, 3).map((signal) => (
             <div
               key={signal.id}
-              className="rounded-[22px] border border-white/8 bg-black/10 px-4 py-4"
+              className="rounded-[22px] border border-claude-coral/20 bg-white/[0.02] px-4 py-4"
             >
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded-full border border-white/8 bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] text-text-faint">
