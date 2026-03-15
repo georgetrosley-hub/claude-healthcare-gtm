@@ -107,7 +107,7 @@ function SidebarBody({
                   Claude
                 </h1>
                 <p className="text-[11px] text-text-muted">
-                  Life Sciences GTM
+                  Healthcare GTM
                 </p>
               </div>
             )}

@@ -114,21 +114,25 @@ Use realistic numbers. Base estimates on the account size, team size, and use ca
 
   executive_narrative: `${BASE_SYSTEM_PROMPT}
 
-Generate a comprehensive executive narrative for this account. This should read like a strategic brief you'd present to your VP of Sales. Structure it as:
+Generate a comprehensive executive narrative for this account. This should read like a strategic brief you'd present to your VP of Sales — focus on healthcare buyer dynamics, deployment blockers, and enterprise motion. Avoid portfolio or biographical framing; keep the lens on strategy and the deal.
+
+Structure it as:
 
 ## Executive Narrative: [Account Name]
 
-**The Opportunity:** Why this account, why now (2-3 sentences)
-**Strategic Context:** What's happening at the company that creates the opening
-**Why Claude Wins Here:** Specific differentiators that matter for THIS life sciences account
-**Competitive Dynamics:** Who else is in play (Snowflake, Palantir, AWS, etc.) and how we're positioned
-**The Path:** Phase 1 (Land) → Phase 2 (Expand) → Phase 3 (Enterprise) with specifics
+**The Opportunity:** Why this account, why now (2-3 sentences) — tie to buyer dynamics, not personal story
+**Strategic Context:** What's happening at the company that creates the opening (budget, initiatives, governance)
+**Buyer Dynamics:** Who buys, who blocks, what committees and sign-offs matter at this account
+**Deployment Blockers:** Top blockers (security, PHI, Epic, legal, clinical trust) and how we're addressing them
+**Why Claude Wins Here:** Specific differentiators that matter for THIS healthcare/life sciences account
+**Competitive Dynamics:** Who else is in play and how we're positioned
+**The Path:** Phase 1 (Land) → Phase 2 (Expand) → Phase 3 (Enterprise) with concrete steps
 **Value at Stake:** Land value, expansion potential, strategic importance
 **Key Risks:** What could derail us and mitigation
 **Executive Sponsors:** Who we need aligned and their motivations
 **Next 30 Days:** Specific actions with owners and deadlines
 
-Write in a confident, strategic voice. This is for internal use — be candid about challenges.`,
+Write in a confident, strategic voice. This is for internal use — be candid about challenges. No biography or personal showcase.`,
 
   strategy_assessment: `${BASE_SYSTEM_PROMPT}
 
@@ -158,6 +162,34 @@ Based on the account profile, recommend the top Claude use cases for life scienc
 **Customer References:** Similar pharma/life sciences companies that have succeeded
 
 Rank by a combination of business impact and likelihood of adoption for THIS specific account.`,
+
+  deployment_failures: `${BASE_SYSTEM_PROMPT}
+
+Generate a concise, actionable brief: "Why Healthcare AI Deployments Fail — and How We Sell Through It." Hiring managers and buyers know these failure points; show you understand them and have a clear way to address each. Structure it as:
+
+## Why Healthcare AI Deployments Fail — and How We Sell Through It
+
+**1. Hallucination risk**
+- Why it kills deployments: clinical safety, liability, loss of physician trust
+- How we sell through it: Constitutional AI, predictable behavior, guardrails, and what to say in the room
+
+**2. PHI governance**
+- Why it kills deployments: HIPAA, BAA, data flows, who touches what, audit exposure
+- How we sell through it: HIPAA-eligible posture, no training on customer data, and the one-pager to leave with legal/security
+
+**3. Integration complexity**
+- Why it kills deployments: Epic, EHR, SSO, change control, IT bandwidth
+- How we sell through it: deployment narrative, what we do and don't touch in pilot, and how to scope so integration isn't the blocker
+
+**4. Clinical trust**
+- Why it kills deployments: "another IT project," adoption risk, clinical governance sign-off
+- How we sell through it: wedge use case, champion in the clinical org, and proof they can forward internally
+
+**5. Unclear ROI**
+- Why it kills deployments: who pays, how value is measured, pilot that never converts
+- How we sell through it: quantified business case, success criteria on one page, and expansion path from pilot to contract
+
+**For this account:** Tailor the "how we sell through it" bullets to the account in the context — reference their top blockers, use cases, and governance context where provided. Be specific; generic answers don't signal deep understanding.`,
 
   expansion_pitch: `${BASE_SYSTEM_PROMPT}
 

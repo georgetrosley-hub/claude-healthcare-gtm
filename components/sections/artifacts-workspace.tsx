@@ -3,6 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
+  AlertTriangle,
   BriefcaseBusiness,
   FileText,
   Mail,
@@ -22,7 +23,8 @@ type ArtifactId =
   | "email"
   | "objection"
   | "security"
-  | "battlecard";
+  | "battlecard"
+  | "deployfail";
 
 const artifactTemplates = [
   {
@@ -91,6 +93,17 @@ const artifactTemplates = [
       "Write the trap questions for the top competitor.",
     ],
   },
+  {
+    id: "deployfail" as const,
+    label: "Why deployments fail",
+    description: "Why healthcare AI pilots fail and how to sell through the blockers.",
+    icon: AlertTriangle,
+    promptType: "deployment_failures",
+    quickPrompts: [
+      "Focus on PHI and governance for this account.",
+      "Tailor to their top blockers and Epic integration.",
+    ],
+  },
 ];
 
 interface ArtifactsWorkspaceProps {
@@ -145,6 +158,8 @@ export function ArtifactsWorkspace({
         ]
           .filter(Boolean)
           .join("\n");
+      case "deployfail":
+        return context || "Tailor to this account's top blockers, use cases, and governance context.";
       default:
         return context;
     }
