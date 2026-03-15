@@ -74,24 +74,24 @@ export function ExecutiveNarrative({ account, competitors }: ExecutiveNarrativeP
   };
 
   const staticNarratives: Record<string, typeof defaultNarrative> = {
-    pfizer: {
-      whyNow: "Medical Affairs exploring regulated document workflows. Legal and Quality want explicit deployment narrative before sign-off.",
-      whyClaude: "Strong governance posture. Constitutional AI. Safe choice for regulated environment. No training on customer data.",
-      whyNot: "Microsoft Copilot, internal tools. Need proof package Legal and Quality can forward internally.",
-      impact: "R&D knowledge retrieval, document workflows, clinical support.",
-      governance: "Data residency, access controls, audit trail. Legal and Quality sign-off required.",
-      rollout: "Phase 1: Medical Affairs pilot. Phase 2: Broader R&D. Phase 3: Enterprise rollout.",
+    hss: {
+      whyNow: "Clinical Operations exploring documentation and care coordination. Legal and clinical governance want explicit deployment narrative before sign-off.",
+      whyClaude: "Strong governance posture. Constitutional AI. Safe choice for HIPAA and clinical workflows. No training on customer data.",
+      whyNot: "Microsoft Copilot, Epic-integrated tools. Need proof package Legal and governance can forward internally.",
+      impact: "Clinical documentation, care coordination, path to OR and patient communications.",
+      governance: "Data residency, access controls, audit trail. Legal and Clinical Governance sign-off required.",
+      rollout: "Phase 1: Clinical Ops pilot. Phase 2: Broader orthopedics. Phase 3: Enterprise rollout.",
     },
-    jpmorgan: {
-      whyNow: "Developer productivity and AI governance are top priorities. Architecture review scheduled — need clear deployment narrative.",
-      whyClaude: "Enterprise controls, no training on customer data, strong governance. Fits regulated financial services requirements.",
-      whyNot: "Microsoft Copilot, internal builds. Differentiate on governance and best-of-breed model choice.",
-      impact: "Developer productivity, operations automation, path to expansion.",
-      governance: "Regulatory and audit requirements. Architecture and security review in progress.",
-      rollout: "Phase 1: Controlled pilot. Phase 2: Broader engineering. Phase 3: Enterprise standard.",
+    "penn-medicine": {
+      whyNow: "Clinical Informatics prioritizing ambient documentation. Epic and security review scheduled — need clear deployment narrative.",
+      whyClaude: "Enterprise controls, no training on customer data, strong governance. Fits academic medical center and HIPAA requirements.",
+      whyNot: "Microsoft Nuance DAX, Epic ecosystem. Differentiate on model quality and governance.",
+      impact: "Ambient scribe, clinical documentation, path to research and population health.",
+      governance: "HIPAA, Epic change control. Security and Clinical Governance review in progress.",
+      rollout: "Phase 1: Ambulatory pilot. Phase 2: Broader service lines. Phase 3: Enterprise standard.",
     },
     ...Object.fromEntries(
-      ["comcast", "morgan-stanley", "salesforce", "nvidia", "capital-one", "adp"].map((id) => [id, defaultNarrative])
+      ["chop", "northwell-health", "ibx"].map((id) => [id, defaultNarrative])
     ),
   };
 

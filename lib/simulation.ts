@@ -19,58 +19,58 @@ type EventTemplate = {
 };
 
 const EVENT_TEMPLATES: Record<string, EventTemplate[]> = {
-  jnj: [
-    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "Clinical Data Sciences evaluating unified trial analytics platform. Snowflake in the mix.", recommendedAction: "Engage Clinical Data leadership", operationalPhrase: "opportunity detected in clinical data" },
-    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "VP Clinical Data Sciences interested in pilot for trial analytics with Unity Catalog.", recommendedAction: "Prepare pilot proposal", operationalPhrase: "champion identified in clinical data" },
-    { type: "competitor_detected", agentName: "Competitive Strategy Agent", priority: "high", title: "Competitive pressure elevated", explanation: "Snowflake Cortex and data warehouse evaluation in progress.", recommendedAction: "Differentiate on Lakehouse and Mosaic AI", operationalPhrase: "competitive pressure elevated" },
-    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "Quality review recommended", explanation: "Quality and Legal want governance narrative before pilot.", recommendedAction: "Package Unity Catalog and audit story", operationalPhrase: "quality review recommended" },
-    { type: "expansion_path", agentName: "Expansion Strategy Agent", priority: "medium", title: "Expansion path identified", explanation: "RWE and R&D could benefit from unified platform.", recommendedAction: "Map R&D and regulatory leadership", operationalPhrase: "expansion path identified" },
+  hss: [
+    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "Clinical Ops evaluating documentation and care coordination. Epic integration in scope.", recommendedAction: "Engage Clinical Ops leadership", operationalPhrase: "opportunity detected in clinical ops" },
+    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "VP Clinical Ops interested in pilot for documentation with governed AI.", recommendedAction: "Prepare pilot proposal", operationalPhrase: "champion identified" },
+    { type: "competitor_detected", agentName: "Competitive Strategy Agent", priority: "high", title: "Competitive pressure elevated", explanation: "Microsoft Copilot and Epic tools in the mix.", recommendedAction: "Differentiate on governance and safety", operationalPhrase: "competitive pressure elevated" },
+    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "Legal and governance review recommended", explanation: "Legal and Clinical Governance want narrative before pilot.", recommendedAction: "Package HIPAA and audit story", operationalPhrase: "governance review recommended" },
+    { type: "expansion_path", agentName: "Expansion Strategy Agent", priority: "medium", title: "Expansion path identified", explanation: "OR docs and patient communications could benefit.", recommendedAction: "Map clinical and IT leadership", operationalPhrase: "expansion path identified" },
   ],
-  merck: [
-    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "R&D Data Platform wants to consolidate discovery and preclinical data.", recommendedAction: "Engage R&D Data Platform", operationalPhrase: "opportunity detected in R&D data" },
-    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "Director R&D Data Platform interested in data lake and Mosaic AI pilot.", recommendedAction: "Draft pilot scope", operationalPhrase: "champion identified" },
-    { type: "competitor_detected", agentName: "Competitive Strategy Agent", priority: "medium", title: "Competitive pressure", explanation: "Palantir Foundry in some R&D workflows. Land with additive use case.", recommendedAction: "Position as additive, not displacement", operationalPhrase: "competitive pressure" },
-    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "IP and data residency review", explanation: "Security wants IP protection and data residency clarity.", recommendedAction: "Prepare deployment narrative", operationalPhrase: "security review recommended" },
+  "penn-medicine": [
+    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "Clinical Informatics wants ambient documentation and scribe.", recommendedAction: "Engage Clinical Informatics", operationalPhrase: "opportunity detected in clinical informatics" },
+    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "Director Clinical Informatics interested in ambient scribe pilot.", recommendedAction: "Draft pilot scope with Epic path", operationalPhrase: "champion identified" },
+    { type: "competitor_detected", agentName: "Competitive Strategy Agent", priority: "medium", title: "Competitive pressure", explanation: "Nuance DAX and Epic ecosystem. Land with best-of-breed governance.", recommendedAction: "Position on quality and control", operationalPhrase: "competitive pressure" },
+    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "Epic and HIPAA review", explanation: "Security wants Epic change control and data residency clarity.", recommendedAction: "Prepare deployment narrative", operationalPhrase: "security review recommended" },
   ],
-  bms: [
-    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "Clinical Dev Ops evaluating trial data platform. Snowflake comparison in parallel.", recommendedAction: "Engage Clinical Dev Ops", operationalPhrase: "opportunity detected in clinical ops" },
-    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "VP Clinical Dev Ops interested in Claude for document workflows.", recommendedAction: "Win on architecture and time-to-value", operationalPhrase: "champion identified" },
-    { type: "competitor_detected", agentName: "Competitive Strategy Agent", priority: "high", title: "Competitive pressure elevated", explanation: "Snowflake evaluation for data warehouse. Need to land clinical analytics first.", recommendedAction: "Differentiate Lakehouse vs warehouse", operationalPhrase: "competitive pressure elevated" },
+  chop: [
+    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "Pediatric clinical documentation and family engagement use cases.", recommendedAction: "Engage Clinical and Family Experience", operationalPhrase: "opportunity detected in pediatric workflows" },
+    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "Clinical leadership interested in governed AI for documentation.", recommendedAction: "Scope pilot with privacy guardrails", operationalPhrase: "champion identified" },
+    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "Privacy and clinical review", explanation: "Pediatric and family data privacy requirements need mapping.", recommendedAction: "Document compliance and governance", operationalPhrase: "privacy review recommended" },
   ],
-  pfizer: [
-    { type: "research_signal", agentName: "Research Agent", priority: "medium", title: "Opportunity detected", explanation: "Medical Affairs exploring regulated document workflows.", recommendedAction: "Engage Medical Affairs" },
-    { type: "legal_review", agentName: "Legal and Procurement Agent", priority: "high", title: "Legal review recommended", explanation: "GxP and FDA validation considerations for AI-assisted workflows.", recommendedAction: "Prepare regulatory package", operationalPhrase: "legal review recommended" },
-    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "Compliance review recommended", explanation: "Data residency and audit requirements need mapping.", recommendedAction: "Document compliance requirements", operationalPhrase: "compliance review recommended" },
-    { type: "expansion_path", agentName: "Expansion Strategy Agent", priority: "medium", title: "Expansion path identified", explanation: "Clinical trial documentation and submission prep could benefit.", recommendedAction: "Map clinical operations", operationalPhrase: "expansion path identified" },
+  "northwell-health": [
+    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "Large system evaluating clinical docs and operational efficiency.", recommendedAction: "Engage system leadership", operationalPhrase: "opportunity detected" },
+    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "Operational and clinical leaders interested in pilot.", recommendedAction: "Define narrow pilot for standardization", operationalPhrase: "champion identified" },
+    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "Procurement and governance review", explanation: "Multi-site deployment and Epic governance required.", recommendedAction: "Align on security and change control", operationalPhrase: "governance review" },
   ],
-  sanofi: [
-    { type: "research_signal", agentName: "Research Agent", priority: "high", title: "Opportunity detected", explanation: "Vaccines Data wants to unify analytics for R&D and manufacturing.", recommendedAction: "Engage Vaccines Data leadership", operationalPhrase: "opportunity detected in vaccines" },
-    { type: "champion_identified", agentName: "Research Agent", priority: "high", title: "Champion identified", explanation: "Head of Data & Analytics, Vaccines interested in unified platform.", recommendedAction: "Prepare EU deployment path", operationalPhrase: "champion identified" },
-    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "EU data residency review", explanation: "EU data residency and GDPR compliance required.", recommendedAction: "Document DPA and deployment options", operationalPhrase: "data residency review" },
+  ibx: [
+    { type: "research_signal", agentName: "Research Agent", priority: "medium", title: "Opportunity detected", explanation: "Member services and claims support exploring AI workflows.", recommendedAction: "Engage Member Services and Compliance" },
+    { type: "legal_review", agentName: "Legal and Procurement Agent", priority: "high", title: "Legal review recommended", explanation: "State insurance and DOI considerations for AI-assisted member workflows.", recommendedAction: "Prepare compliance package", operationalPhrase: "legal review recommended" },
+    { type: "security_blocker", agentName: "Security and Compliance Agent", priority: "high", title: "Compliance review recommended", explanation: "Member data and HIPAA requirements need mapping.", recommendedAction: "Document compliance requirements", operationalPhrase: "compliance review recommended" },
+    { type: "expansion_path", agentName: "Expansion Strategy Agent", priority: "medium", title: "Expansion path identified", explanation: "Claims and care management could benefit.", recommendedAction: "Map claims and quality leadership", operationalPhrase: "expansion path identified" },
   ],
 };
 
 const APPROVAL_TEMPLATES: Record<string, { title: string; reason: string; agent: string; impact: string; risk: "low" | "medium" | "high" }[]> = {
-  jnj: [
-    { title: "Launch trial analytics pilot with Clinical Data Sciences", reason: "Champion aligned; Quality review in progress.", agent: "Human Oversight Agent", impact: "$2.2M land, path to expansion", risk: "medium" },
-    { title: "Package governance narrative for Quality and Legal", reason: "Required before pilot approval.", agent: "Human Oversight Agent", impact: "Unblocks pilot timeline", risk: "low" },
-    { title: "Build executive brief for CDO", reason: "Executive alignment needed for Snowflake comparison.", agent: "Human Oversight Agent", impact: "Moves decision forward", risk: "low" },
+  hss: [
+    { title: "Launch clinical documentation pilot with Clinical Ops", reason: "Champion aligned; Legal and governance review in progress.", agent: "Human Oversight Agent", impact: "$1.2M land, path to expansion", risk: "medium" },
+    { title: "Package governance narrative for Legal and Clinical Governance", reason: "Required before pilot approval.", agent: "Human Oversight Agent", impact: "Unblocks pilot timeline", risk: "low" },
+    { title: "Build executive brief for CIO", reason: "Executive alignment needed for Epic integration path.", agent: "Human Oversight Agent", impact: "Moves decision forward", risk: "low" },
   ],
-  merck: [
-    { title: "Launch R&D data lake pilot", reason: "Champion aligned; additive use case.", agent: "Human Oversight Agent", impact: "$1.9M land, path to expansion", risk: "medium" },
-    { title: "Schedule security and IP review", reason: "Required before pilot.", agent: "Human Oversight Agent", impact: "Unblocks pilot", risk: "low" },
+  "penn-medicine": [
+    { title: "Launch ambient scribe pilot", reason: "Champion aligned; Epic and security review in progress.", agent: "Human Oversight Agent", impact: "$2.2M land, path to expansion", risk: "medium" },
+    { title: "Schedule Epic and security review", reason: "Required before pilot.", agent: "Human Oversight Agent", impact: "Unblocks pilot", risk: "low" },
   ],
-  bms: [
-    { title: "Launch clinical trial analytics pilot", reason: "Clinical Dev Ops interested. Snowflake in parallel.", agent: "Human Oversight Agent", impact: "$1.6M land, path to expansion", risk: "medium" },
-    { title: "Prepare Veeva integration design", reason: "Key for Clinical Dev Ops.", agent: "Human Oversight Agent", impact: "Accelerates pilot", risk: "low" },
+  chop: [
+    { title: "Launch pediatric documentation pilot", reason: "Clinical leadership interested. Privacy review in parallel.", agent: "Human Oversight Agent", impact: "$1.5M land, path to expansion", risk: "medium" },
+    { title: "Prepare privacy and clinical governance package", reason: "Key for pediatric and family data.", agent: "Human Oversight Agent", impact: "Accelerates pilot", risk: "low" },
   ],
-  pfizer: [
-    { title: "Run Medical Affairs knowledge pilot", reason: "Regulated document workflows pilot.", agent: "Human Oversight Agent", impact: "$2M land, path to expansion", risk: "medium" },
-    { title: "Initiate Legal and Quality review", reason: "GxP and IP considerations.", agent: "Human Oversight Agent", impact: "Unblocks deployment", risk: "medium" },
+  "northwell-health": [
+    { title: "Launch clinical docs pilot", reason: "Champion aligned; procurement and standardization in review.", agent: "Human Oversight Agent", impact: "$2M land, path to expansion", risk: "medium" },
+    { title: "Initiate security and Epic change control review", reason: "Multi-site deployment requirements.", agent: "Human Oversight Agent", impact: "Unblocks deployment", risk: "medium" },
   ],
-  sanofi: [
-    { title: "Launch Vaccines data platform pilot", reason: "Champion aligned. EU residency required.", agent: "Human Oversight Agent", impact: "$1.5M land, path to expansion", risk: "medium" },
-    { title: "Complete EU data residency and DPA review", reason: "Legal and DPO sign-off required.", agent: "Human Oversight Agent", impact: "Unblocks pilot", risk: "low" },
+  ibx: [
+    { title: "Run Member Services pilot", reason: "Member and claims support workflows pilot.", agent: "Human Oversight Agent", impact: "$1.8M land, path to expansion", risk: "medium" },
+    { title: "Initiate DOI and compliance review", reason: "State insurance and member data considerations.", agent: "Human Oversight Agent", impact: "Unblocks deployment", risk: "medium" },
   ],
   default: [
     { title: "Launch pilot", reason: "Champion aligned; pilot scope defined.", agent: "Human Oversight Agent", impact: "Unblocks expansion path", risk: "medium" },
@@ -82,7 +82,7 @@ let eventId = 0;
 let approvalId = 0;
 
 function getEventTemplates(accountId: string): EventTemplate[] {
-  return EVENT_TEMPLATES[accountId] ?? EVENT_TEMPLATES.pfizer;
+  return EVENT_TEMPLATES[accountId] ?? EVENT_TEMPLATES.hss;
 }
 
 function getApprovalTemplates(accountId: string) {

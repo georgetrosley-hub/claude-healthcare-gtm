@@ -113,43 +113,31 @@ function getSecondSponsor(account: Account) {
 
 function getLastTouchLabel(account: Account) {
   const flagship = getFlagshipDealContext(account.id);
-  if (account.id === "pfizer" && flagship)
+  if (account.id === "hss" && flagship)
     return `Call with ${flagship.championName} · Wed 11:15`;
-  if (account.id === "pfizer") return "Medical affairs prep note · Wed 11:15";
-  if (account.id === "jpmorgan") return "Architecture review · Mar 18";
-  if (account.id === "comcast") return "Security review · This week";
-  if (account.id === "morgan-stanley") return "Wealth mgmt intro · Scheduled";
-  if (account.id === "salesforce") return "Platform eng discovery · This week";
-  if (account.id === "nvidia") return "AI/ML team intro · Pending";
-  if (account.id === "capital-one") return "Pilot scope draft · In progress";
-  if (account.id === "adp") return "HR ops demo · Scheduled";
+  if (account.id === "hss") return "Clinical docs prep note · Wed 11:15";
+  if (account.id === "penn-medicine") return "Ambient scribe discovery · Mar 18";
+  if (account.id === "chop") return "Clinical governance review · This week";
+  if (account.id === "northwell-health") return "Pilot scope intro · Scheduled";
+  if (account.id === "ibx") return "Member services demo · This week";
   return "Account review note · This week";
 }
 
 function getRecentMoment(account: Account) {
-  if (account.id === "pfizer") {
-    return "Regulated document workflows continue to resonate, but legal and validation concerns need a tighter response package.";
+  if (account.id === "hss") {
+    return "Clinical documentation workflows resonate with orthopedics. Legal and clinical governance want a tighter deployment narrative.";
   }
-  if (account.id === "jpmorgan") {
-    return "Security and architecture teams engaged. Governance narrative resonates; need to move through formal review.";
+  if (account.id === "penn-medicine") {
+    return "Ambient scribe and clinical docs discovery underway. Epic integration and governance path need alignment.";
   }
-  if (account.id === "comcast") {
-    return "Customer experience team exploring AI use cases. Deployment narrative due for security sign-off.";
+  if (account.id === "chop") {
+    return "Pediatric documentation and family engagement use cases in play. Clinical and privacy review scheduled.";
   }
-  if (account.id === "morgan-stanley") {
-    return "Wealth management intro in motion. Champion path forming around advisor productivity.";
+  if (account.id === "northwell-health") {
+    return "Operational efficiency and clinical docs wedge building. Large-system procurement and standardization in review.";
   }
-  if (account.id === "salesforce") {
-    return "Platform engineering discovery underway. Evaluating best-of-breed vs integrated AI strategy.";
-  }
-  if (account.id === "nvidia") {
-    return "AI/ML team interested in Claude for internal workflows. Build vs buy evaluation in progress.";
-  }
-  if (account.id === "capital-one") {
-    return "POV selected. Pilot scope draft in progress. Compliance and security reviews scheduled.";
-  }
-  if (account.id === "adp") {
-    return "HR ops demo scheduled. Champion path forming around payroll and compliance workflows.";
+  if (account.id === "ibx") {
+    return "Member services and claims support pilot in scope. Compliance and DOI alignment in progress.";
   }
   return "Recent conversations support a narrow first wedge, but the executive case still needs tightening.";
 }
@@ -473,14 +461,14 @@ export function buildAccountUpdates(account: Account): AccountUpdate[] {
 
   const flagship = getFlagshipDealContext(account.id);
 
-  if (account.id === "pfizer" && flagship) {
+  if (account.id === "hss" && flagship) {
     return [
       {
         id: `${account.id}-specific-1`,
         createdAt: "Today · 08:45",
         author: "George",
-        title: "Elena bought in, Legal wants more",
-        note: `${flagship.championName} is aligned. Regulated workflow angle resonates. Legal and validation want a much more explicit deployment narrative before they sign off. Next step: package the security and governance response so a regulated buyer can forward it internally.`,
+        title: "Champion bought in, Legal wants more",
+        note: `${flagship.championName} is aligned. Clinical documentation angle resonates. Legal and clinical governance want a much more explicit deployment narrative before they sign off. Next step: package the security and HIPAA response so a regulated buyer can forward it internally.`,
         tag: "call",
       },
       {
@@ -488,7 +476,7 @@ export function buildAccountUpdates(account: Account): AccountUpdate[] {
         createdAt: "Yesterday · 14:50",
         author: "George",
         title: "Need a better proof package",
-        note: "Package the security and governance response in a way a regulated buyer can forward internally without translating it. GxP is a red herring for the pilot — we're not touching validated systems.",
+        note: "Package the security and governance response in a way a healthcare buyer can forward internally without translating it. Epic integration scope is clear — we're not touching validated EHR paths in pilot.",
         tag: "risk",
       },
       ...baseUpdates,
