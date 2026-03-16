@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: "Claude Healthcare GTM",
   description: "How I'd build pipeline and expansion for Claude Enterprise.",
   icons: {
-    icon: "/claude-logo.png",
+    icon: "/claude-logo.svg",
   },
 };
 

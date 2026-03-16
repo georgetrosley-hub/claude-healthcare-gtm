@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-const CLAUDE_LOGO_SRC = "/claude-logo.png";
+const CLAUDE_LOGO_SRC = "/claude-logo.svg";
 
 interface ClaudeLogoIconProps {
   className?: string;
@@ -18,7 +18,7 @@ export function ClaudeSparkle({ className, size = 20 }: ClaudeLogoIconProps) {
       alt=""
       width={size}
       height={size}
-      className={cn("shrink-0 mix-blend-[lighten]", className)}
+      className={cn("shrink-0", className)}
       aria-hidden
       unoptimized
     />
