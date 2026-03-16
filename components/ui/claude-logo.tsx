@@ -18,7 +18,7 @@ export function ClaudeSparkle({ className, size = 20 }: ClaudeLogoIconProps) {
       alt=""
       width={size}
       height={size}
-      className={cn("shrink-0", className)}
+      className={cn("shrink-0 mix-blend-[lighten]", className)}
       aria-hidden
       unoptimized
     />
